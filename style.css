@@ -1,0 +1,224 @@
+:root {
+	--light: #eee;
+	--dark: #222;
+	--mid: #999;
+	--popl: #ade;
+	--popd: #379;
+	--base: 14px;
+	--small: 12px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+@font-face {
+	font-family: "IBM Plex Mono";
+	src: url("../fonts/IBMPlexMono-Regular.ttf");
+	font-display: swap;
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: "IBM Plex Mono";
+	src: url("../fonts/IBMPlexMono-Italic.ttf");
+	font-display: swap;
+	font-style: italic;
+	font-weight: 400;
+}
+
+a {
+	color: #69a;
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--light);
+}
+
+h2 {
+	font-size: 16px;
+	font-weight: 400;
+}
+
+body {
+	background: var(--light);
+	font-family: "IBM Plex Mono", monospace;
+	font-size: var(--base);
+	letter-spacing: .3px;
+	margin: 0 auto;
+	max-width: 480px;
+	text-align: center;
+}
+
+main {
+	background: #fff;
+	margin: 24px;
+	box-shadow: .3rem .3rem .1rem rgba(0, 0, 0, 0.05);
+}
+
+header {
+	background: var(--popl);
+	color: var(--popd);
+	width: 100%;
+	height: 32px;
+	padding: 0 24px;
+	display: flex;
+	align-items: center;
+	box-shadow: 
+		inset 0 1px 0 #eff,
+		inset 0 -1px 0 #9cd;
+}
+
+.info {
+	margin-left: auto;
+}
+
+.container {
+	padding: 24px;
+}
+
+.label {
+	width: 50%;
+	margin:0 0 4px;
+	line-height: 1;
+}
+
+.inputs {
+	display: flex;
+	flex-direction: column;
+	font-style: italic;
+}
+
+.row {
+	width: 100%;
+	margin-bottom: 8px;
+	display: flex;
+	align-items: center;
+}
+
+.column {
+	flex: 1;
+}
+
+.preview {
+	width: 50%;
+	height: 64px;
+	margin-top: 0;
+}
+
+input, button {
+	font: inherit;
+	font-style: normal;
+	letter-spacing: .3px;
+	width: 100%;
+	height: 40px;
+	padding: 8px;
+	margin: 4px 0;
+	outline: none;
+	border-radius: 0;
+}
+
+input {
+	font-size: var(--small);
+	border: 1px solid var(--mid);
+}
+
+button {
+	background: var(--light);
+	color: var(--dark);
+	border: 0;
+	box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+}
+
+.divider {
+	background: var(--light);
+	width: 1px;
+	height: 100px;
+	margin: -12px 12px 0;
+}
+
+.colorfield {
+	position: relative;
+}
+
+.canvas {
+	display: block;
+	width: 100%;
+	height: 100%;
+	margin: 16px 0 24px;
+	touch-action: none;
+}
+
+.eyedrop {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	pointer-events: none;
+	border: 1px solid var(--dark);
+}
+
+.slider {
+	background: linear-gradient(to right, red, yellow, lime, cyan, blue, magenta, red);
+	position: relative;
+	width: 100%;
+	height: 24px;
+	touch-action: none;
+}
+
+.thumb {
+	position: absolute;
+	width: 1px;
+	height: 32px;
+	top: -5px;
+	background: var(--dark);
+}
+
+.center {
+	text-align: center;
+}
+
+.border {
+	border: 1px solid var(--light);
+}
+
+.popup {
+	width: 90%;
+	max-width: 600px;
+	min-width: 280px;
+	display: none;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	color: var(--popd);
+	background: var(--popl);
+	text-align: left;
+	box-shadow: 
+		inset 0 1px 0 #eff,
+		inset 0 -1px 0 #9cd;
+	line-height: 1.75;
+	padding: 32px;
+	z-index: 1000;
+}
+
+.close {
+	font-size: 18px;
+}
+
+.popup .close {
+	cursor: pointer;
+	float: right;
+}
+
+.popup.show {
+	display: block;
+}
+
+@media (max-width: 480px) {
+	:root {
+		--base: 13px;
+		--small: 11px;
+	}
+	main {
+		margin: 16px;
+	}
