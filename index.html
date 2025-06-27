@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mini Hex</title>
+<meta name="description" content="Convert hex colors to shorthand.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,7 +12,10 @@
 <main>
 	<header>
 		<div>Mini Hex</div>
-		<div class="info"><a href="#" id="infoButton" role="button">?</a></div>
+		<nav>
+			<a href="#" id="darkToggle" role="button"></a>
+			<a href="#" id="infoButton" role="button">?</a>
+		</nav>
 	</header>
 	<div class="container">
 		<div class="inputs">
@@ -20,18 +24,18 @@
 				<div class="label">Minified</div>
 			</div>
 			<div class="row border">
-				<div class="preview" id="colorPreview"></div>
-				<div class="preview" id="shorthandHexPreview"></div>
+				<div class="preview" id="previewColor"></div>
+				<div class="preview" id="previewShorthandHex"></div>
 			</div>
 			<div class="row">
 				<div class="column">
-					<input type="text" id="hexInput" maxlength="7" pattern="#[0-9a-fA-F]{0,6}">
-					<input type="text" id="rgbInput" pattern="rgb\s*\(\s*\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3}\s*\)">
+					<input type="text" id="inputHex" maxlength="7" pattern="#[0-9a-fA-F]{0,6}">
+					<input type="text" id="inputRgb" pattern="rgb\s*\(\s*\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3}\s*\)">
 				</div>
 				<div class="divider"></div>
 				<div class="column">
-					<input class="border center" type="text" id="shorthandHexInput" maxlength="4" pattern="#[0-9a-fA-F]{0,3}">
-					<button id="copyButton">Copy</button>
+					<input class="center" type="text" id="inputShorthandHex" maxlength="4" pattern="#[0-9a-fA-F]{0,3}">
+					<button id="buttonCopy">Copy</button>
 				</div>
 			</div>
 		</div>
@@ -46,17 +50,20 @@
 	</div>
 </main>
 
-<div class="popup" id="popup" >
-	<span class="close" id="closePopup">&times;</span>
-	<h2>Mini Hex <i>v1.0</i></h2>
-	<p>Mini Hex converts standard 6-digit RGB hex colors into their closest 3-digit shorthand equivalents.</p>
-	<p>You can input your colors directly, or use the handy color picker to get started.</p>
-	<p style="margin-top:32px;"><small>By <a href="https://www.dannyduplex.com" class="underline">Danny Duplex</a><br /><i>Solving the world's least important problems.</i></small></p>
+<div class="popup-backdrop" id="popupBackdrop">
+	<div class="popup" id="popup" >
+		<span class="close" id="closePopup">&times;</span>
+		<h2>Mini Hex <i>v1.0</i></h2>
+		<p>Mini Hex converts standard 6-digit RGB hex colors into their closest 3-digit shorthand equivalents.</p>
+		<p>You can input your colors directly, or use the handy color picker to get started.</p>
+		<p style="margin-top:2rem;"><small>By <a href="https://www.dannyduplex.com" class="underline">Danny Duplex</a><br /><i>Solving the world's least important problems.</i></small></p>
+	</div>
 </div>
 
 </body>
 
 <script src="minihex.js"></script>
 <script src="info.js"></script>
+<script src="lightdark.js"></script>
 
 </html>
